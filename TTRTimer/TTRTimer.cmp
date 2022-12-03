@@ -1,0 +1,44 @@
+<aura:component controller = "SLAandTTRComponentHelper" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:handler event="force:refreshView" action="{!c.changeField}" />
+      <aura:attribute name="plus" type="boolean" default="true" />
+    <aura:handler name="init" value="{! this }" action="{!c.doInit}"/>
+    <aura:attribute name="days" type="Integer" default="00" />
+       <aura:attribute name="ltngHour1" type="Integer" default="00" />
+    <aura:attribute name="ltngMinute1" type="Integer" default="00"/>
+    <aura:attribute name="ltngSecond1" type="Integer" default="00"/>
+    <aura:attribute name="ltngTimmer" type="Integer" default="00:00:00:00" />
+    <aura:attribute name="ltngIsDisplayed" type="boolean" default="false"/> 
+       <aura:attribute name="datechanged" type="boolean" default="false"/> 
+    
+     <div class="slds-card slds-align_absolute-center" style="width:335px;padding:8px;" >
+        <div class="slds-grid slds-wrap" >
+            <div class="slds-col slds-size_1-of-1 slds-align_absolute-center" >
+                <aura:if isTrue="{!v.plus}">
+                    <b>Remaining TTR Time</b>
+                    <aura:set attribute="else">
+                        <div class="slds-text-color_error"> <b> TTR Time Overdue by</b></div>
+                    </aura:set>
+                </aura:if> 
+                
+            </div>
+            
+                 <aura:if isTrue="{!v.plus}">
+                       <div class="slds-col slds-size_1-of-1 slds-align_absolute-center" >
+                {!v.days} day(s) : {!v.ltngHour1} hours : {!v.ltngMinute1} minutes : {!v.ltngSecond1} seconds
+            </div>
+                    <aura:set attribute="else">
+                       <div class="slds-col slds-size_1-of-1 slds-align_absolute-center" > <div class="slds-text-color_error">  
+                {!v.days} day(s) : {!v.ltngHour1} hours : {!v.ltngMinute1} minutes : {!v.ltngSecond1} seconds
+            </div></div>
+                    </aura:set>
+                </aura:if> 
+            
+            
+         
+            
+            
+            
+        </div>
+    </div>  
+</aura:component>
