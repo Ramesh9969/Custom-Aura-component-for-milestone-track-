@@ -18,7 +18,7 @@
             ss[0] = (ss[0]%24);
            
         }
-        dt.setHours(ss[0]);
+        dt.setHours(ss[0]); 
         dt.setMinutes(ss[1]);
         dt.setSeconds(ss[2]);
       
@@ -45,9 +45,7 @@
           component.set("v.ltngSecond1",ts[2]);
         this.waitingTimeId =setTimeout($A.getCallback(() => this.setStartTimeOnUI(component)), 1000);
         if(ts[0]==0 && ts[1]==0 && ts[2]==0 ){
-            component.set("v.ltngTimmer","EXPIRED");
-            window.clearTimeout(this.waitingTimeId);
-            component.set("v.ltngIsDisplayed",false);
+            $A.get('e.force:refreshView').fire();
         }
     }
     },

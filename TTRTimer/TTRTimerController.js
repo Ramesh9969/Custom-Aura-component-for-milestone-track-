@@ -20,7 +20,7 @@
                          component.set("v.plus","true");   
                      }
                  tts = nn[0]+":"+nn[1]+":"+nn[2];
-                if(tts != '00:00:00' && tts !== null && typeof tts !== 'undefined'){
+                if( tts !== null && typeof tts !== 'undefined'&& tts!=='00:00:00'){
                      component.set("v.ltngTimmer",tts);
                      var ss = tts.split(":");
                      var days = ((ss[0]-(ss[0]%24))/24);

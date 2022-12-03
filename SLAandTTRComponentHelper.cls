@@ -90,7 +90,7 @@ public class SLAandTTRComponentHelper {
             If(milliseconds<0){
                 mlsnw = milliseconds*(-1); 
             }
-        Long seconds = milliseconds / 1000;
+        Long seconds = mlsnw / 1000;
         Long minutes = seconds / 60;
         Long hours = minutes / 60;
         Long days = hours / 24;

@@ -28,13 +28,20 @@
                      
               
                      var ss = tts.split(":");
-                     var days = ((ss[0]-(ss[0]%24))/24);
-                    component.set("v.days",days);  
-                  
+                   
+         if(ss[0]>23){
+          var  days = ((ss[0]-(ss[0]%24))/24);
+          component.set("v.days",days);  
+            ss[0] = (ss[0]%24);
+           
+        }
               
                 if( nn[3] == 'false'){
                       helper.setStartTimeOnUI(component); 
                 }else{
+                      component.set("v.ltngHour1",ss[0]);
+         component.set("v.ltngMinute1",ss[1]);
+          component.set("v.ltngSecond1",ss[2]);
                    helper.setStopTimeOnUI(component);
                  }
                 
@@ -65,7 +72,7 @@
                  }
                  
               var  tts = nn[0]+":"+nn[1]+":"+nn[2];
-                
+                  var ss = tts.split(":");
                 component.set("v.ltngTimmer",tts);
               if(nn[4]=='minus'){
                         component.set("v.plus","false"); 
@@ -76,15 +83,19 @@
                          console.log(nn[4]);
                      }
                
-                    var ss = tts.split(":");
-                    var days = ((ss[0]-(ss[0]%24))/24);
-                    component.set("v.days",days);  
-                  
-               
-                 if( nn[3] == 'false'){
-                     
+                           if(ss[0]>23){
+           var days = ((ss[0]-(ss[0]%24))/24);
+          component.set("v.days",days);  
+            ss[0] = (ss[0]%24);
+           
+        }
+              
+                if( nn[3] == 'false'){
                       helper.setStartTimeOnUI(component); 
-                 }else{
+                }else{
+                      component.set("v.ltngHour1",ss[0]);
+         component.set("v.ltngMinute1",ss[1]);
+          component.set("v.ltngSecond1",ss[2]);
                    helper.setStopTimeOnUI(component);
                  }
                 
