@@ -41,6 +41,8 @@ Each timer starts based on status field value.
 
 (New Count down time value = (domain count*Default countdown time+Remaining old countdown time)
 
+>After reach timer for 00:00:00 timer wont stops and running for delay time
+
 
 
 So I implemented Two aura components, Trigger on case object and component helper apex class for this scenario.
